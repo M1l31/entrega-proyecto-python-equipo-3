@@ -1,5 +1,4 @@
 import tkinter as tk
-import menu
 
 class Usuario():
     numUsuarios = 0

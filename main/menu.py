@@ -57,3 +57,5 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = AsistenciaApp(root)
     root.mainloop()
+
+    "comentario"

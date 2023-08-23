@@ -20,10 +20,8 @@ class Usuario():
         conect = "Conectado" if self.conectado else "Desconectado"
         return f"Mi nombre de usuario es {self.nombre} y estoy {conect}"
 
-# Lista para almacenar los usuarios registrados
 usuarios_registrados = []
 
-# Función para registrar un nuevo usuario
 def registrar_usuario():
     nombre = entry_usuario.get()
     contrasena = entry_contrasena.get()
@@ -31,12 +29,10 @@ def registrar_usuario():
     usuarios_registrados.append(nuevo_usuario)
     label_estado.config(text=f"Usuario {nombre} registrado con éxito.", fg="green")
 
-# Función para validar las credenciales ingresadas en la interfaz
 def validar_credenciales():
     usuario = entry_usuario.get()
     contrasena = entry_contrasena.get()
 
-    # Buscar el usuario en la lista de usuarios registrados
     for usuario_obj in usuarios_registrados:
         if usuario_obj.nombre == usuario and usuario_obj.contra == contrasena:
             label_estado.config(text="Inicio de sesión exitoso", fg="green")
@@ -45,7 +41,6 @@ def validar_credenciales():
 
     label_estado.config(text="Credenciales incorrectas", fg="red")
 
-# Crear ventana principal
 ventana = tk.Tk()
 ventana.title("Inicio de Sesión y Registro")
 

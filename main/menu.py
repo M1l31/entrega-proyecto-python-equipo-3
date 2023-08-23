@@ -1,28 +1,59 @@
 import tkinter as tk
-import importlib
+from tkinter import simpledialog, messagebox
 
-def importar_modulo(modulo):
-    importlib.import_module(modulo)
+class AsistenciaApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Registro de Asistencias, Sanciones y Amonestaciones")
+        
+        self.menu_bar = tk.Menu(self.root)
+        
+        self.asistencia_menu = tk.Menu(self.menu_bar, tearoff=0)
+        self.asistencia_menu.add_command(label="Registrar Asistencia", command=self.registrar_asistencia)
+        self.menu_bar.add_cascade(label="Asistencias", menu=self.asistencia_menu)
+        
+        self.sanciones_menu = tk.Menu(self.menu_bar, tearoff=0)
+        self.sanciones_menu.add_command(label="Registrar Sanción", command=self.registrar_sancion)
+        self.menu_bar.add_cascade(label="Sanciones", menu=self.sanciones_menu)
+        
+        self.amonestaciones_menu = tk.Menu(self.menu_bar, tearoff=0)
+        self.amonestaciones_menu.add_command(label="Registrar Amonestación", command=self.registrar_amonestacion)
+        self.menu_bar.add_cascade(label="Amonestaciones", menu=self.amonestaciones_menu)
+        
+        self.root.config(menu=self.menu_bar)
+        
+        self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
+        
+        self.registros = []
 
-root = tk.Tk()
-root.title("MENU")
+    def registrar_asistencia(self):
+        nombre = simpledialog.askstring("Registrar Asistencia", "Ingrese el nombre:")
+        if nombre:
+            self.registros.append(f"Asistencia - Nombre: {nombre}")
+    
+    def registrar_sancion(self):
+        nombre = simpledialog.askstring("Registrar Sanción", "Ingrese el nombre:")
+        motivo = simpledialog.askstring("Registrar Sanción", "Ingrese el motivo de la sanción:")
+        if nombre and motivo:
+            self.registros.append(f"Sanción - Nombre: {nombre}, Motivo: {motivo}")
+    
+    def registrar_amonestacion(self):
+        nombre = simpledialog.askstring("Registrar Amonestación", "Ingrese el nombre:")
+        motivo = simpledialog.askstring("Registrar Amonestación", "Ingrese el motivo de la amonestación:")
+        if nombre and motivo:
+            self.registros.append(f"Amonestación - Nombre: {nombre}, Motivo: {motivo}")
+    
+    def on_closing(self):
+        if messagebox.askokcancel("Salir", "¿Estás seguro que quieres salir? Los datos no guardados se perderán."):
+            self.guardar_registros()
+            self.root.destroy()
+    
+    def guardar_registros(self):
+        with open("registros.txt", "w") as file:
+            for registro in self.registros:
+                file.write(registro + "\n")
 
-label = tk.Label(root, text="-------------------MENU------------------")
-label.pack()
-
-button1 = tk.Button(root, text="Sanciones, Observaciones y Amonestaciones", command=lambda: importar_modulo("Sanciones"))
-button1.pack()
-
-separator1 = tk.Frame(root, height=2, bd=1, relief=tk.SUNKEN)
-separator1.pack(fill=tk.X, padx=10, pady=5)
-
-button2 = tk.Button(root, text="Asistencias", command=lambda: importar_modulo("Asistencia"))
-button2.pack()
-
-separator2 = tk.Frame(root, height=2, bd=1, relief=tk.SUNKEN)
-separator2.pack(fill=tk.X, padx=10, pady=5)
-
-button3 = tk.Button(root, text="Agregar alumno", command=lambda: importar_modulo("Alumnos"))
-button3.pack()
-
-root.mainloop()
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = AsistenciaApp(root)
+    root.mainloop()

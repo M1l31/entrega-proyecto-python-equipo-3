@@ -20,16 +20,6 @@ class Usuario():
         conect = "Conectado" if self.conectado else "Desconectado"
         return f"Mi nombre de usuario es {self.nombre} y estoy {conect}"
 
-class VentanaAsistencia(tk.Toplevel):
-    def __init__(self, parent):
-        super().__init__(parent)
-        self.title("Registro de Asistencia")
-        self.geometry("400x300")
-        self.label_asistencia = tk.Label(self, text="Registro de Asistencia", font=("Helvetica", 16, "bold"))
-        self.label_asistencia.pack(pady=10)
-
-        # Aquí puedes agregar componentes para llevar el registro de asistencia de los alumnos
-
 # Lista para almacenar los usuarios registrados
 usuarios_registrados = []
 
@@ -51,9 +41,6 @@ def validar_credenciales():
         if usuario_obj.nombre == usuario and usuario_obj.contra == contrasena:
             label_estado.config(text="Inicio de sesión exitoso", fg="green")
             usuario_obj.conectar()
-            # Abre la ventana de asistencia al iniciar sesión exitosamente
-            ventana_asistencia = VentanaAsistencia(ventana)
-            ventana_asistencia.mainloop()
             return
 
     label_estado.config(text="Credenciales incorrectas", fg="red")
@@ -62,33 +49,26 @@ def validar_credenciales():
 ventana = tk.Tk()
 ventana.title("Inicio de Sesión y Registro")
 
-# Etiqueta de título
 label_titulo = tk.Label(ventana, text="ITS Villada-Preceptoria", font=("Helvetica", 16, "bold"))
 label_titulo.pack(pady=10)
 
-# Etiqueta y campo de entrada para el usuario
 label_usuario = tk.Label(ventana, text="Usuario:", font=("Helvetica", 12))
 label_usuario.pack(pady=5)
 entry_usuario = tk.Entry(ventana, font=("Helvetica", 12))
 entry_usuario.pack(pady=5)
 
-# Etiqueta y campo de entrada para la contraseña
 label_contrasena = tk.Label(ventana, text="Contraseña:", font=("Helvetica", 12))
 label_contrasena.pack(pady=5)
-entry_contrasena = tk.Entry(ventana, show="*", font=("Helvetica", 12))  # La contraseña se muestra como asteriscos
+entry_contrasena = tk.Entry(ventana, show="*", font=("Helvetica", 12))
 entry_contrasena.pack(pady=5)
 
-# Botón de inicio de sesión
 boton_iniciar_sesion = tk.Button(ventana, text="Iniciar Sesión", font=("Helvetica", 14), command=validar_credenciales)
 boton_iniciar_sesion.pack(pady=10)
 
-# Botón de registro
 boton_registrar_usuario = tk.Button(ventana, text="Registrar Usuario", font=("Helvetica", 14), command=registrar_usuario)
 boton_registrar_usuario.pack(pady=5)
 
-# Etiqueta para mostrar el estado del inicio de sesión o registro
 label_estado = tk.Label(ventana, text="", font=("Helvetica", 12))
 label_estado.pack()
 
-# Ejecutar la ventana
 ventana.mainloop()

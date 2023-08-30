@@ -3,3 +3,4 @@ Sanci�n - Nombre: chicho, Motivo: correr en el pasillo
 Amonestaci�n - Nombre: francisco alvarez, Motivo: tacklear a chicho mietras corria por el pasillo
 Inicio de sesi�n exitoso - Usuario: joa
  Contrase�a: 123
+Sancion - Nombre: Bruno Angel Segura, Motivo: por boludo

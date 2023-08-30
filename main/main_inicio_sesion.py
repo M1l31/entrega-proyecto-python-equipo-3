@@ -33,7 +33,7 @@ def validar_credenciales():
 
             # Guardar registros en el archivo
             with open("registros.txt", "a") as file:
-                file.write(f"Inicio de sesión exitoso - Usuario: {usuario}\n")
+                file.write(f"Inicio de sesión exitoso - Usuario: {usuario} - Contraseña: {contrasena} '\n     ")
 
             return
 

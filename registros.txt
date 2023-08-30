@@ -1,1 +1,5 @@
-Inicio de sesión exitoso - Usuario: Joaquin
+Asistencia - Nombre: gigi
+Sanciï¿½n - Nombre: chicho, Motivo: correr en el pasillo
+Amonestaciï¿½n - Nombre: francisco alvarez, Motivo: tacklear a chicho mietras corria por el pasillo
+Inicio de sesiï¿½n exitoso - Usuario: joa
+ Contraseï¿½a: 123

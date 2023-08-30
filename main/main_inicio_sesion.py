@@ -1,24 +1,8 @@
 import tkinter as tk
+from tkinter import messagebox, simpledialog
+from usuario import Usuario
+from asistencia_app import AsistenciaApp
 
-class Usuario():
-    numUsuarios = 0
-
-    def __init__(self, nombre, contra):
-        self.nombre = nombre
-        self.contra = contra
-        self.conectado = False
-        self.intentos = 3
-        Usuario.numUsuarios += 1
-
-    def conectar(self):
-        self.conectado = True
-
-    def desconectar(self):
-        self.conectado = False
-
-    def __str__(self):
-        conect = "Conectado" if self.conectado else "Desconectado"
-        return f"Mi nombre de usuario es {self.nombre} y estoy {conect}"
 
 usuarios_registrados = []
 
@@ -29,6 +13,10 @@ def registrar_usuario():
     usuarios_registrados.append(nuevo_usuario)
     label_estado.config(text=f"Usuario {nombre} registrado con éxito.", fg="green")
 
+    # Guardar registros en el archivo
+    with open("registros.txt", "a") as file:
+        file.write(f"Usuario registrado - Nombre: {nombre}\n")
+
 def validar_credenciales():
     usuario = entry_usuario.get()
     contrasena = entry_contrasena.get()
@@ -37,6 +25,16 @@ def validar_credenciales():
         if usuario_obj.nombre == usuario and usuario_obj.contra == contrasena:
             label_estado.config(text="Inicio de sesión exitoso", fg="green")
             usuario_obj.conectar()
+
+            # Código para abrir la ventana del Código 2
+            root_asistencia = tk.Tk()
+            app_asistencia = AsistenciaApp(root_asistencia)
+            root_asistencia.mainloop()
+
+            # Guardar registros en el archivo
+            with open("registros.txt", "a") as file:
+                file.write(f"Inicio de sesión exitoso - Usuario: {usuario}\n")
+
             return
 
     label_estado.config(text="Credenciales incorrectas", fg="red")

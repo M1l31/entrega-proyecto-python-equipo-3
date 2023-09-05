@@ -1,0 +1,15 @@
+
+Nombre: Augusto
+Apellido: Segura
+Cantidad: 1
+Disciplina: Observación
+Razón: Grita en clases
+Fecha: 3/4
+
+Nombre: Augusto
+Apellido: Segura
+Cantidad: 3
+Disciplina: Sanción
+Razón: Roba
+Fecha: 6/8
+

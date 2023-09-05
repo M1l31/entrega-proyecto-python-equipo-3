@@ -1,0 +1,8 @@
+Nombre: Bruno
+Apellido: Segura
+Comportamiento: Correr por los pasillos
+
+Nombre: Bruno
+Apellido: Segura
+Comportamiento: Pegar un compañero
+

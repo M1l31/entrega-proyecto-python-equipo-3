@@ -1,0 +1,25 @@
+Día: Lunes
+Módulo: 1
+Profesor: juan pablo carta
+Materia: Materia 1
+
+Día: Lunes
+Módulo: 2
+Profesor: juan pablo carta
+Materia: Materia 1
+
+Día: Lunes
+Módulo: 3
+Profesor: pablo rolp
+Materia: Materia 2
+
+Día: Lunes
+Módulo: 4
+Profesor: pablo rolp
+Materia: Materia 2
+
+Día: Lunes
+Módulo: 8
+Profesor: cara
+Materia: Materia 1
+

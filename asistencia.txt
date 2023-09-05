@@ -1,0 +1,31 @@
+Nombre: Juan
+Apellido: Pablo
+Curso: 4C
+Inasistencia: 1/2 : 3/4 : Justificada
+
+Nombre: Juan
+Apellido: Pablo
+Curso: 4C
+Inasistencia: 1/2 : 6/9 : Justificada
+
+Nombre: Ramiro
+Apellido: Lazcano
+Curso: 3B
+Inasistencia: 1 : 3/9 : Injustificada
+
+Nombre: Facu
+Apellido: Roberto
+Curso: 1A
+Inasistencia: 1/2 : 3/4 : Justificada
+
+Nombre: Tuti
+Apellido: Euge
+Curso: 3C
+Inasistencia: 1/2 : 3/4 : Justificada
+
+Nombre: Bruno
+Apellido: Segura
+Curso: 4C
+Inasistencia: 1 : 3/10
+Fecha: Injustificada
+
